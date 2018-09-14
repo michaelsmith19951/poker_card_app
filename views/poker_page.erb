@@ -1,0 +1,53 @@
+<center>
+	<div class="box_div">
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/layout.css">
+</head>
+<body>
+		<div id="heading">
+			<h1>Mike's Poker App</h1>
+		</div>
+		<form method="post" action="play_game">
+			<div id="deal">
+				<h1>Deal</h1>
+				<input class="button" type="image" src="/images/deck3.jpeg" alt="submit">
+				<br><h3>(Click the deck)</h3>
+			</div>
+		</form>
+		<%if game == [""]%>
+			<div id="black">
+			<h1>Black</h1>
+				<%5.times do%>
+				<img id="cards" src="/images/blank_card.png">
+			<%end%>	
+			</div>
+			<div id="white">
+			<h1>White</h1>
+			<%5.times do%>
+				<img id="cards" src="/images/blank_card.png">
+			<%end%>	
+			</div>
+			<div id="winner">
+			<h1 style="color:green">Blank</h1>
+			</div>
+		<%else%>
+			<div id="black">		
+				<h1>Black</h1>
+				<%game[0][1..5].each do |card|%>
+					<img id="cards" src="/images/<%=card%>.png">
+				<%end%>
+				<br><h3><%=game[0][6]%></h3>
+			</div>
+			<div id="white">	
+				<h1>White</h1>
+				<%game[1][1..5].each do |card|%>
+					<img  id="cards" src="/images/<%=card%>.png">
+				<%end%>
+				<br><h3><%=game[1][6]%></h3><br>
+			</div>
+			<div id="winner">	
+				<h1><%=game[2][0]%></h1>
+			</div>
+		<%end%>
+	</body>
+</div>
